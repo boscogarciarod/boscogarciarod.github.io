@@ -167,7 +167,7 @@
 <main>
 <div class="wrap">
 
-<section id="home" class="tab visible">
+<section id="tab-home" class="tab visible">
   <div class="about-grid">
     <img class="about-photo" src="profile.jpg" alt="Bosco Garcia">
     <div class="prose">
@@ -179,7 +179,7 @@
   </div>
 </section>
 
-<section id="research" class="tab">
+<section id="tab-research" class="tab">
   <div class="page-grid">
     <figure class="side-figure">
       <img src="alfonsine-tables.jpg" alt="Medieval manuscript page with astronomical tables written in red and black ink.">
@@ -215,7 +215,7 @@
   </div>
 </section>
 
-<section id="talks" class="tab">
+<section id="tab-talks" class="tab">
   <div class="page-grid">
     <figure class="side-figure">
       <img src="edinburgh-2026.jpg" alt="Bosco Garcia presenting at a lectern beneath a large screen showing a slide on the Ṭabaqāt al-Umam.">
@@ -247,7 +247,7 @@
   </div>
 </section>
 
-<section id="teaching" class="tab">
+<section id="tab-teaching" class="tab">
   <div class="page-grid">
     <figure class="side-figure">
       <img src="miniature-astronomers.jpg" alt="Miniature painting of astronomers at work beneath a domed observatory pavilion with a hanging sphere.">
@@ -274,7 +274,7 @@
   </div>
 </section>
 
-<section id="cv" class="tab">
+<section id="tab-cv" class="tab">
   <div class="page-grid">
     <figure class="side-figure">
       <img src="las-arenas.jpg" alt="The Vizcaya transporter bridge over the ria at Las Arenas under a blue sky.">
@@ -290,7 +290,7 @@
   </div>
 </section>
 
-<section id="contact" class="tab">
+<section id="tab-contact" class="tab">
   <h2>Get in touch</h2>
   <div class="contact-grid">
     <div>
@@ -318,28 +318,23 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
   const links = document.querySelectorAll('.tab-link');
   const tabs = document.querySelectorAll('section.tab');
+  const valid = t => !!document.getElementById('tab-' + t);
   function show(tab){
-    tabs.forEach(s => s.classList.toggle('visible', s.id === tab));
+    tabs.forEach(s => s.classList.toggle('visible', s.id === 'tab-' + tab));
     links.forEach(l => l.classList.toggle('active', l.dataset.tab === tab));
   }
   links.forEach(l => l.addEventListener('click', e => {
     e.preventDefault();
     show(l.dataset.tab);
     history.replaceState(null, '', '#' + l.dataset.tab);
-    window.scrollTo({top: 0});
+    window.scrollTo(0, 0);
   }));
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   const initial = location.hash.replace('#','');
-  if (initial && document.getElementById(initial)) {
-    show(initial);
-    const toTop = () => window.scrollTo(0, 0);
-    toTop();
-    requestAnimationFrame(toTop);
-    window.addEventListener('load', () => requestAnimationFrame(toTop));
-  }
+  if (initial && valid(initial)) show(initial);
   window.addEventListener('hashchange', () => {
     const h = location.hash.replace('#','');
-    if (h && document.getElementById(h)) { show(h); window.scrollTo(0, 0); }
+    if (h && valid(h)) { show(h); window.scrollTo(0, 0); }
   });
 </script>
 
