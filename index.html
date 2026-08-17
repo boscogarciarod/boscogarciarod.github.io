@@ -18,6 +18,7 @@
     --rust-deep:#7d3520;
     --line:#e6dccb;
     --gold:#c98b3a;
+    --lapis:#35508f;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
@@ -31,6 +32,18 @@
   h1,h2,h3{font-family:"Fraunces","Playfair Display",Georgia,serif;font-weight:500;line-height:1.15;letter-spacing:-0.01em}
   a{color:var(--rust);text-decoration:none;transition:color .15s}
   a:hover{color:var(--rust-deep);text-decoration:underline;text-underline-offset:3px}
+
+  /* Tilework accent band */
+  .tile-band{
+    height:7px;
+    background:repeating-linear-gradient(
+      90deg,
+      var(--rust) 0 46px,
+      var(--gold) 46px 58px,
+      var(--lapis) 58px 104px,
+      var(--gold) 104px 116px
+    );
+  }
 
   /* HEADER */
   header.masthead{text-align:center;padding:52px 24px 8px}
@@ -75,7 +88,26 @@
     filter:saturate(.96);
     box-shadow:0 1px 0 var(--line),18px 18px 0 -2px var(--paper),18px 18px 0 0 var(--line);
   }
-  .areas{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:34px}
+  /* Miniature plate */
+  .plate-grid{
+    display:grid;grid-template-columns:320px 1fr;gap:54px;align-items:center;
+    margin-top:56px;padding-top:44px;border-top:1px solid var(--line);
+  }
+  .plate-figure{margin:0;text-align:center}
+  .plate-img{
+    width:300px;display:block;margin:0 auto;
+    border-radius:150px 150px 6px 6px;
+    border:1px solid var(--line);
+    outline:6px solid var(--paper);
+    box-shadow:0 0 0 7px var(--gold),0 18px 40px -18px rgba(43,38,34,.45);
+  }
+  .plate-caption{
+    margin-top:22px;font-style:italic;color:var(--ink-soft);font-size:16px;
+    max-width:34ch;margin-left:auto;margin-right:auto;line-height:1.5;
+  }
+  .plate-note{font-size:18px;color:var(--ink-soft);font-style:italic;margin-top:22px;max-width:52ch}
+
+  .areas{display:grid;grid-template-columns:1fr;gap:26px}
   .area-card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px 22px}
   .area-card h3{font-size:15px;text-transform:uppercase;letter-spacing:.12em;color:var(--rust-deep);font-family:"Newsreader",serif;font-weight:500;margin-bottom:8px}
   .area-card p{font-size:17px;color:var(--ink-soft);margin:0}
@@ -113,12 +145,16 @@
     header.masthead h1{font-size:34px}
     .about-grid{grid-template-columns:1fr;gap:34px}
     .about-photo{width:220px;height:264px;margin:0 auto}
-    .areas,.contact-grid{grid-template-columns:1fr}
+    .plate-grid{grid-template-columns:1fr;gap:34px}
+    .plate-note{max-width:none}
+    .contact-grid{grid-template-columns:1fr}
     .nav-links a{padding:6px 10px;font-size:13px}
   }
 </style>
 </head>
 <body>
+
+<div class="tile-band"></div>
 
 <header class="masthead">
   <h1>Bosco Garcia</h1>
@@ -151,14 +187,23 @@
       <p>When I am not in the archive, you can find me studying Arabic, playing video games, or watching anime.</p>
     </div>
   </div>
-  <div class="areas">
-    <div class="area-card">
-      <h3>Areas of Specialization</h3>
-      <p>History and philosophy of science · Philosophy of social science</p>
-    </div>
-    <div class="area-card">
-      <h3>Areas of Competence</h3>
-      <p>History of philosophy (medieval, early modern, continental) · Data ethics · Philosophy of physics · Philosophy of neuroscience</p>
+  <div class="plate-grid">
+    <figure class="plate-figure">
+      <img class="plate-img" src="miniature-astronomers.jpg" alt="Miniature painting of astronomers at work in an observatory, gathered around instruments beneath a domed pavilion with a hanging armillary sphere.">
+      <figcaption class="plate-caption">Astronomers at work beneath the dome of an observatory.</figcaption>
+    </figure>
+    <div>
+      <div class="areas">
+        <div class="area-card">
+          <h3>Areas of Specialization</h3>
+          <p>History and philosophy of science · Philosophy of social science</p>
+        </div>
+        <div class="area-card">
+          <h3>Areas of Competence</h3>
+          <p>History of philosophy (medieval, early modern, continental) · Data ethics · Philosophy of physics · Philosophy of neuroscience</p>
+        </div>
+      </div>
+      <p class="plate-note">Instruments, working papers, and the scholars between them — the scenes of scientific labor my research seeks to reconstruct.</p>
     </div>
   </div>
 </section>
