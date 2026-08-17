@@ -5,148 +5,141 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bosco Garcia — Philosophy &amp; History of Science</title>
 <meta name="description" content="Bosco Garcia, PhD candidate in Philosophy at UC San Diego, working in the history and philosophy of science.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <style>
+  @font-face{
+    font-family:'Junicode';
+    src:url('fonts/junicode-400.woff2') format('woff2');
+    font-weight:400;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'Junicode';
+    src:url('fonts/junicode-600.woff2') format('woff2');
+    font-weight:500 700;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'Junicode';
+    src:url('fonts/junicode-italic-400.woff2') format('woff2');
+    font-weight:400;font-style:italic;font-display:swap;
+  }
   :root{
-    --cream:#faf5ec;
-    --paper:#fffdf8;
-    --ink:#2b2622;
-    --ink-soft:#5c534a;
-    --rust:#a4472a;
-    --rust-deep:#7d3520;
-    --line:#e6dccb;
-    --gold:#c98b3a;
-    --lapis:#35508f;
+    --maroon:#621D1D;
+    --maroon-dark:#451212;
+    --ink:#28211f;
+    --ink-soft:#5e544f;
+    --line:#e6e0d7;
+    --bg:#fcfbf8;
+    --paper:#ffffff;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
-    background:var(--cream);
+    background:var(--bg);
     color:var(--ink);
-    font-family:"Newsreader",Georgia,"Times New Roman",serif;
+    font-family:'Junicode',Georgia,'Times New Roman',serif;
     font-size:19px;
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3{font-family:"Fraunces","Playfair Display",Georgia,serif;font-weight:500;line-height:1.15;letter-spacing:-0.01em}
-  a{color:var(--rust);text-decoration:none;transition:color .15s}
-  a:hover{color:var(--rust-deep);text-decoration:underline;text-underline-offset:3px}
-
-  /* Tilework accent band */
-  .tile-band{
-    height:7px;
-    background:repeating-linear-gradient(
-      90deg,
-      var(--rust) 0 46px,
-      var(--gold) 46px 58px,
-      var(--lapis) 58px 104px,
-      var(--gold) 104px 116px
-    );
-  }
+  h1,h2,h3{font-weight:500;line-height:1.15;color:var(--maroon)}
+  a{color:var(--maroon);text-decoration:none;transition:color .15s}
+  a:hover{color:var(--maroon-dark);text-decoration:underline;text-underline-offset:3px}
 
   /* HEADER */
-  header.masthead{text-align:center;padding:52px 24px 8px}
-  header.masthead h1{font-size:44px;margin-bottom:6px}
-  header.masthead .subtitle{font-style:italic;color:var(--ink-soft);font-size:19px}
+  header.masthead{text-align:center;padding:58px 24px 0}
+  header.masthead h1{font-size:52px;letter-spacing:.01em}
 
   /* NAV TABS */
   nav{
     position:sticky;top:0;z-index:50;
-    background:rgba(250,245,236,.92);
+    background:rgba(252,251,248,.94);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
     margin-top:26px;
   }
-  .nav-inner{max-width:960px;margin:0 auto;padding:0 20px}
+  .nav-inner{max-width:1000px;margin:0 auto;padding:0 20px}
   .nav-links{
     display:flex;flex-wrap:wrap;justify-content:center;gap:4px;
-    border-top:1px solid var(--line);padding:10px 0;
+    border-top:1px solid var(--line);padding:12px 0;
   }
   .nav-links a{
-    color:var(--ink-soft);font-size:15px;letter-spacing:.10em;text-transform:uppercase;
+    color:var(--ink-soft);font-size:15px;letter-spacing:.12em;text-transform:uppercase;
     padding:6px 16px;border-bottom:2px solid transparent;
   }
-  .nav-links a:hover{color:var(--rust);text-decoration:none}
-  .nav-links a.active{color:var(--rust-deep);border-bottom-color:var(--rust)}
+  .nav-links a:hover{color:var(--maroon);text-decoration:none}
+  .nav-links a.active{color:var(--maroon);border-bottom-color:var(--maroon)}
 
-  .wrap{max-width:960px;margin:0 auto;padding:0 28px}
-  main{padding:52px 0 70px;min-height:50vh}
-  section.tab{display:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px}
+  main{padding:56px 0 72px;min-height:50vh}
+  section.tab{display:none;scroll-margin-top:90px}
   section.tab.visible{display:block;animation:fade .25s ease}
   @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
-  .sec-label{font-style:italic;color:var(--rust);font-size:17px;margin-bottom:6px;letter-spacing:.02em}
-  section h2{font-size:33px;margin-bottom:26px}
-  .prose p{margin-bottom:18px;max-width:66ch}
+  section h2{font-size:32px;margin-bottom:28px}
+  .prose p{margin-bottom:18px;max-width:68ch}
   .prose p:last-child{margin-bottom:0}
 
   /* ABOUT */
-  .about-grid{display:grid;grid-template-columns:300px 1fr;gap:54px;align-items:start}
+  .about-grid{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:start}
   .about-photo{
-    width:300px;height:360px;object-fit:cover;border-radius:4px;
-    filter:saturate(.96);
-    box-shadow:0 1px 0 var(--line),18px 18px 0 -2px var(--paper),18px 18px 0 0 var(--line);
-  }
-  /* Miniature plate */
-  .plate-grid{
-    display:grid;grid-template-columns:320px 1fr;gap:54px;align-items:center;
-    margin-top:56px;padding-top:44px;border-top:1px solid var(--line);
-  }
-  .plate-figure{margin:0;text-align:center}
-  .plate-img{
-    width:300px;display:block;margin:0 auto;
-    border-radius:150px 150px 6px 6px;
+    width:300px;height:360px;object-fit:cover;border-radius:3px;
     border:1px solid var(--line);
-    outline:6px solid var(--paper);
-    box-shadow:0 0 0 7px var(--gold),0 18px 40px -18px rgba(43,38,34,.45);
+    box-shadow:0 14px 34px -18px rgba(40,33,31,.4);
   }
-  .plate-caption{
-    margin-top:22px;font-style:italic;color:var(--ink-soft);font-size:16px;
-    max-width:34ch;margin-left:auto;margin-right:auto;line-height:1.5;
+
+  /* Side-figure page layout */
+  .page-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:start}
+  .side-figure{margin:0;position:sticky;top:96px}
+  .side-figure img{
+    width:100%;display:block;border-radius:3px;
+    border:1px solid var(--line);
+    box-shadow:0 14px 34px -18px rgba(40,33,31,.4);
   }
-  .plate-note{font-size:18px;color:var(--ink-soft);font-style:italic;margin-top:22px;max-width:52ch}
+  .side-figure figcaption{
+    margin-top:14px;font-style:italic;color:var(--ink-soft);
+    font-size:15px;line-height:1.5;
+  }
 
-  .areas{display:grid;grid-template-columns:1fr;gap:26px}
-  .area-card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px 22px}
-  .area-card h3{font-size:15px;text-transform:uppercase;letter-spacing:.12em;color:var(--rust-deep);font-family:"Newsreader",serif;font-weight:500;margin-bottom:8px}
-  .area-card p{font-size:17px;color:var(--ink-soft);margin:0}
-
-  /* Lists */
-  .entry{padding:18px 0;border-bottom:1px solid var(--line)}
+  /* Entries */
+  .entry{padding:20px 0;border-bottom:1px solid var(--line)}
   .entry:last-child{border-bottom:none}
-  .entry-title{font-family:"Fraunces",serif;font-size:20px;font-weight:500;margin-bottom:4px}
-  a.entry-title{display:inline-block;color:var(--ink)}
-  a.entry-title:hover{color:var(--rust);text-decoration:underline;text-underline-offset:3px}
+  .entry-title{font-size:21px;font-weight:500;margin-bottom:4px;color:var(--ink)}
+  a.entry-title{display:inline-block;color:var(--maroon)}
   .entry-meta{color:var(--ink-soft);font-size:17px}
   .entry-meta em{color:var(--ink)}
   .tag{
     display:inline-block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--rust-deep);background:#f3e7d4;border-radius:3px;padding:2px 8px;margin-left:2px;
+    color:var(--maroon);background:#f1e7e7;border-radius:3px;padding:2px 8px;margin-left:2px;
   }
+  .abstract{
+    margin-top:12px;font-size:16px;color:var(--ink-soft);line-height:1.6;
+    padding-left:16px;border-left:3px solid #e9dcdc;max-width:64ch;
+  }
+  .abstract .abs-label{
+    font-style:normal;letter-spacing:.1em;text-transform:uppercase;
+    font-size:13px;color:var(--maroon);
+  }
+  .subhead2{font-size:24px;margin:38px 0 6px;color:var(--maroon)}
+  .subhead2:first-child{margin-top:0}
   .subhead{font-style:italic;color:var(--ink-soft);font-size:18px;margin:26px 0 10px}
-  .subhead:first-child{margin-top:0}
 
-  /* Contact / CV */
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  /* CV / Contact */
+  .btn{
+    display:inline-block;margin-top:14px;
+    background:var(--maroon);color:#fff;font-size:17px;
+    padding:11px 24px;border-radius:4px;letter-spacing:.01em;
+  }
+  .btn:hover{background:var(--maroon-dark);color:#fff;text-decoration:none}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:760px}
   .contact-grid p{margin-bottom:6px;color:var(--ink-soft)}
   .contact-grid strong{color:var(--ink)}
-  .btn{
-    display:inline-block;margin-top:8px;
-    background:var(--rust);color:#fff;font-size:17px;
-    padding:11px 22px;border-radius:5px;letter-spacing:.01em;
-  }
-  .btn:hover{background:var(--rust-deep);color:#fff;text-decoration:none}
 
   footer{padding:40px 0 60px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:15px;text-align:center}
 
-  @media(max-width:760px){
+  @media(max-width:820px){
     body{font-size:18px}
-    header.masthead h1{font-size:34px}
-    .about-grid{grid-template-columns:1fr;gap:34px}
-    .about-photo{width:220px;height:264px;margin:0 auto}
-    .plate-grid{grid-template-columns:1fr;gap:34px}
-    .plate-note{max-width:none}
+    header.masthead h1{font-size:38px}
+    .about-grid,.page-grid{grid-template-columns:1fr;gap:36px}
+    .about-photo{width:230px;height:276px;margin:0 auto;display:block}
+    .side-figure{position:static;max-width:380px;margin:0 auto}
     .contact-grid{grid-template-columns:1fr}
     .nav-links a{padding:6px 10px;font-size:13px}
   }
@@ -154,11 +147,8 @@
 </head>
 <body>
 
-<div class="tile-band"></div>
-
 <header class="masthead">
   <h1>Bosco Garcia</h1>
-  <div class="subtitle">Philosophy &amp; History of Science · UC San Diego</div>
 </header>
 
 <nav>
@@ -181,119 +171,126 @@
   <div class="about-grid">
     <img class="about-photo" src="profile.jpg" alt="Bosco Garcia">
     <div class="prose">
-      <p>Welcome! I am a philosopher and historian of science working on the material conditions of scientific practice. I am a Ph.D. candidate in Philosophy at the University of California San Diego, where I expect to complete my degree in June 2027.</p>
-      <p>My dissertation examines the transmission of astronomical traditions in medieval Iberia — from the Sindhind tradition to the Toledan Tables — and asks what role writing materials, above all paper, played in the scientific production of al-Andalus. Working across Arabic, Latin, and Greek manuscript traditions, I combine philosophy of science with manuscript studies to understand how the media on which science was written shaped the science itself.</p>
-      <p>Beyond the dissertation, I work on the philosophy of physics, the philosophy of social science, and the methodology of historical case studies. My co-authored publications include <a href="https://doi.org/10.1163/22134468-bja10085" target="_blank" rel="noopener">"Going Humean on the Flow of Time"</a> (with Craig Callender) and <a href="https://doi.org/10.1136/jme-2025-110972" target="_blank" rel="noopener">"The Problem of Atypicality in LLM-Powered Psychiatry"</a> (with Eugene Chua and Harman Brah). Before my doctorate, I studied philosophy as an undergraduate, worked for a year in academic publishing, and completed a master's degree in history and philosophy of science.</p>
-      <p>When I am not in the archive, you can find me studying Arabic, playing video games, or watching anime.</p>
-    </div>
-  </div>
-  <div class="plate-grid">
-    <figure class="plate-figure">
-      <img class="plate-img" src="miniature-astronomers.jpg" alt="Miniature painting of astronomers at work in an observatory, gathered around instruments beneath a domed pavilion with a hanging armillary sphere.">
-      <figcaption class="plate-caption">Astronomers at work beneath the dome of an observatory.</figcaption>
-    </figure>
-    <div>
-      <div class="areas">
-        <div class="area-card">
-          <h3>Areas of Specialization</h3>
-          <p>History and philosophy of science · Philosophy of social science</p>
-        </div>
-        <div class="area-card">
-          <h3>Areas of Competence</h3>
-          <p>History of philosophy (medieval, early modern, continental) · Data ethics · Philosophy of physics · Philosophy of neuroscience</p>
-        </div>
-      </div>
-      <p class="plate-note">Instruments, working papers, and the scholars between them — the scenes of scientific labor my research seeks to reconstruct.</p>
+      <p>I am a philosopher and historian of science working on the material conditions of scientific practice. I am a Ph.D. candidate in Philosophy at the University of California San Diego, where I expect to complete my degree in June 2027.</p>
+      <p>In my work, I apply the reasoning and methods from philosophy of science and social sciences to questions in the history of scientific practice, in order to understand how the specific material conditions of writing contributed to the development of scientific products. My dissertation examines how the transmission of paper from the medieval Islamicate world impacted the production of intermediary documentation (such as note-taking or computation), with special attention to the transmission of astronomical traditions in medieval Iberia.</p>
+      <p>Beyond the dissertation, I work on the philosophy of social science and philosophical perspectives on literacy. My co-authored publications include <a href="https://doi.org/10.1163/22134468-bja10085" target="_blank" rel="noopener">"Going Humean on the Flow of Time"</a> (with Craig Callender) and <a href="https://doi.org/10.1136/jme-2025-110972" target="_blank" rel="noopener">"The Problem of Atypicality in LLM-Powered Psychiatry"</a> (with Eugene Chua and Harman Brah). Before my doctorate, I studied philosophy as an undergraduate, worked for a year in academic publishing, and completed a master's degree in history and philosophy of science.</p>
+      <p>When I am not doing research, you can find me cooking, reading fantasy novels or dancing flamenco.</p>
     </div>
   </div>
 </section>
 
 <section id="research" class="tab">
-  <div class="sec-label">Research</div>
-  <h2>Publications &amp; Work in Progress</h2>
+  <div class="page-grid">
+    <figure class="side-figure">
+      <img src="alfonsine-tables.jpg" alt="Medieval manuscript page with astronomical tables written in red and black ink.">
+      <figcaption>Tabule Alfonsi (h. 1-22v). Tabule magistri Johannis de Lineriis (h. 23-48v) [Libro de las tablas alfonsíes]</figcaption>
+    </figure>
+    <div>
+      <h2 class="subhead2">Publications</h2>
+      <div class="entry">
+        <div class="entry-title">The Problem of Atypicality in LLM-Powered Psychiatry</div>
+        <div class="entry-meta"><em>Journal of Medical Ethics</em> (2025) · with Eugene Chua and Harman Brah · <a href="https://doi.org/10.1136/jme-2025-110972" target="_blank" rel="noopener">doi:10.1136/jme-2025-110972</a></div>
+        <p class="abstract"><span class="abs-label">Abstract.</span> Large language models (LLMs) are increasingly proposed as scalable solutions to the global mental health crisis. But their deployment in psychiatric contexts raises a distinctive ethical concern: the problem of atypicality. Because LLMs generate outputs based on population-level statistical regularities, their responses—while typically appropriate for general users—may be dangerously inappropriate when interpreted by psychiatric patients, who often exhibit atypical cognitive or interpretive patterns. We argue that standard mitigation strategies, such as prompt engineering or fine-tuning, are insufficient to resolve this structural risk. Instead, we propose dynamic contextual certification (DCC): a staged, reversible and context-sensitive framework for deploying LLMs in psychiatry, inspired by clinical translation and dynamic safety models from artificial intelligence governance. DCC reframes chatbot deployment as an ongoing epistemic and ethical process that prioritises interpretive safety over static performance benchmarks. Atypicality, we argue, cannot be eliminated—but it can, and must, be proactively managed.</p>
+      </div>
+      <div class="entry">
+        <div class="entry-title">Going Humean on the Flow of Time</div>
+        <div class="entry-meta"><em>Timing &amp; Time Perception</em> (2023) · with Craig Callender · <a href="https://doi.org/10.1163/22134468-bja10085" target="_blank" rel="noopener">doi:10.1163/22134468-bja10085</a></div>
+        <p class="abstract"><span class="abs-label">Abstract.</span> We argue that the problem of the flow of time is a special problem, one unlike many other challenges in reconciling temporal phenomena with time in physics. After clarifying this point, we develop a Humean account of the flow of time according to which the psychological stream of experience explains why we think the world is tensed. On our account, the flow of time is not all inferential, as the invitation to think time flows comes from the deepest aspects of human experience, making it an offer we cannot refuse.</p>
+      </div>
 
-  <div class="subhead">Peer-reviewed publications</div>
-  <div class="entry">
-    <div class="entry-title">The Problem of Atypicality in LLM-Powered Psychiatry</div>
-    <div class="entry-meta"><em>Journal of Medical Ethics</em> (2025) · with Eugene Chua and Harman Brah · <a href="https://doi.org/10.1136/jme-2025-110972" target="_blank" rel="noopener">doi:10.1136/jme-2025-110972</a></div>
-  </div>
-  <div class="entry">
-    <div class="entry-title">Going Humean on the Flow of Time</div>
-    <div class="entry-meta"><em>Timing &amp; Time Perception</em> (2023) · with Craig Callender · <a href="https://doi.org/10.1163/22134468-bja10085" target="_blank" rel="noopener">doi:10.1163/22134468-bja10085</a></div>
-  </div>
-
-  <div class="subhead">Works in progress</div>
-  <div class="entry">
-    <a class="entry-title" href="silent-laborer-medieval-iberian-science.pdf" target="_blank" rel="noopener">A Silent Laborer in Medieval Iberian Science</a>
-    <div class="entry-meta">The function of paper in scientific production <span class="tag">in preparation</span></div>
-  </div>
-  <div class="entry">
-    <a class="entry-title" href="lnqa-paper-revolution.pdf" target="_blank" rel="noopener">Large-N Qualitative Analysis as an Explanatory Approach to the Medieval Islamic Paper Revolution</a>
-    <div class="entry-meta"><span class="tag">in preparation</span></div>
-  </div>
-  <div class="entry">
-    <a class="entry-title" href="andalusi-dome-said-al-andalusi.pdf" target="_blank" rel="noopener">The Andalusi Dome</a>
-    <div class="entry-meta">Medieval global science from the perspective of Ṣāʿid al-Andalusī <span class="tag">in preparation</span></div>
+      <h2 class="subhead2">Works in Progress</h2>
+      <div class="entry">
+        <a class="entry-title" href="silent-laborer-medieval-iberian-science.pdf" target="_blank" rel="noopener">A Silent Laborer in Medieval Iberian Science</a>
+        <div class="entry-meta">The function of paper in scientific production <span class="tag">in preparation</span></div>
+      </div>
+      <div class="entry">
+        <a class="entry-title" href="lnqa-paper-revolution.pdf" target="_blank" rel="noopener">Large-N Qualitative Analysis as an Explanatory Approach to the Medieval Islamic Paper Revolution</a>
+        <div class="entry-meta"><span class="tag">in preparation</span></div>
+      </div>
+      <div class="entry">
+        <a class="entry-title" href="andalusi-dome-said-al-andalusi.pdf" target="_blank" rel="noopener">The Andalusi Dome</a>
+        <div class="entry-meta">Medieval global science from the perspective of Ṣāʿid al-Andalusī <span class="tag">in preparation</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="talks" class="tab">
-  <div class="sec-label">Talks</div>
-  <h2>Selected Talks</h2>
-  <div class="entry">
-    <div class="entry-title">Iberian Globalities through Ṣāʿid al-Andalusī's <em>Ṭabaqāt al-Umam</em></div>
-    <div class="entry-meta">HSS / ESHS Joint Meeting, University of Edinburgh, UK — Jul 2026</div>
-  </div>
-  <div class="entry">
-    <div class="entry-title">A Silent Laborer in Medieval Iberian Science</div>
-    <div class="entry-meta">Society for Social Studies of Science (4S), Seattle, US — Sep 2025 · ESHS 11th Meeting, Universitat Pompeu Fabra, Spain — Sep 2024</div>
-  </div>
-  <div class="entry">
-    <div class="entry-title">Neural Entropy: Between Statistical Mechanics and Thermodynamics</div>
-    <div class="entry-meta">Graduate Conference on Philosophy of Mathematics, Physics &amp; Logic, University of Western Ontario, Canada — May 2025</div>
-  </div>
-  <div class="entry">
-    <div class="entry-title">The Problem of Atypicality in LLM-Powered Psychiatry</div>
-    <div class="entry-meta">TechneCon Conference, Northeastern University, US — Jul 2024</div>
-  </div>
-  <div class="entry">
-    <div class="entry-title">Least Action-Based Selection of Neuronal Populations</div>
-    <div class="entry-meta">Workshop on the Philosophy of Biophysics, University of Bristol, UK — Sep 2023</div>
+  <div class="page-grid">
+    <figure class="side-figure">
+      <img src="edinburgh-2026.jpg" alt="Bosco Garcia presenting at a lectern beneath a large screen showing a slide on the Ṭabaqāt al-Umam.">
+      <figcaption>HSS/ESHS 2026, Edinburgh UK</figcaption>
+    </figure>
+    <div>
+      <h2>Selected Talks</h2>
+      <div class="entry">
+        <div class="entry-title">Iberian Globalities through Ṣāʿid al-Andalusī's <em>Ṭabaqāt al-Umam</em></div>
+        <div class="entry-meta">HSS / ESHS Joint Meeting, University of Edinburgh, UK — Jul 2026</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">A Silent Laborer in Medieval Iberian Science</div>
+        <div class="entry-meta">Society for Social Studies of Science (4S), Seattle, US — Sep 2025 · ESHS 11th Meeting, Universitat Pompeu Fabra, Spain — Sep 2024</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">Neural Entropy: Between Statistical Mechanics and Thermodynamics</div>
+        <div class="entry-meta">Graduate Conference on Philosophy of Mathematics, Physics &amp; Logic, University of Western Ontario, Canada — May 2025</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">The Problem of Atypicality in LLM-Powered Psychiatry</div>
+        <div class="entry-meta">TechneCon Conference, Northeastern University, US — Jul 2024</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">Least Action-Based Selection of Neuronal Populations</div>
+        <div class="entry-meta">Workshop on the Philosophy of Biophysics, University of Bristol, UK — Sep 2023</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="teaching" class="tab">
-  <div class="sec-label">Teaching</div>
-  <h2>Teaching</h2>
-  <div class="subhead">Instructor of record — Department of Philosophy, UCSD</div>
-  <div class="entry">
-    <div class="entry-title">PHIL 10 — Introduction to Logic</div>
-    <div class="entry-meta">Summer 2026</div>
-  </div>
-  <div class="entry">
-    <div class="entry-title">PHIL 32 — Philosophy and the Rise of Modern Science</div>
-    <div class="entry-meta">Spring 2027</div>
-  </div>
-
-  <div class="subhead">Teaching assistant — selected</div>
-  <div class="entry">
-    <div class="entry-meta">
-      PHIL 12 · Scientific Reasoning &nbsp;—&nbsp; PHIL 27 · Ethics and Society &nbsp;—&nbsp; PHIL 10 · Introduction to Logic &nbsp;—&nbsp; PHIL 16 · Science Fiction and Philosophy &nbsp;—&nbsp; PHIL 146 · Philosophy of Physics (Reader) &nbsp;—&nbsp; CAT 1–3 · Culture, Art and Technology, at UC San Diego (2021–2026).
+  <div class="page-grid">
+    <figure class="side-figure">
+      <img src="miniature-astronomers.jpg" alt="Miniature painting of astronomers at work beneath a domed observatory pavilion with a hanging sphere.">
+      <figcaption>Nasir al-Din al-Tusi at the observatory in Maragha, Persia. British Library. Tevarih-i guzide Or. 3222, f.105</figcaption>
+    </figure>
+    <div>
+      <h2>Teaching</h2>
+      <div class="subhead">Instructor of record — Department of Philosophy, UCSD</div>
+      <div class="entry">
+        <div class="entry-title">PHIL 10 — Introduction to Logic</div>
+        <div class="entry-meta">Summer 2026</div>
+      </div>
+      <div class="entry">
+        <div class="entry-title">PHIL 32 — Philosophy and the Rise of Modern Science</div>
+        <div class="entry-meta">Spring 2027</div>
+      </div>
+      <div class="subhead">Teaching assistant — selected</div>
+      <div class="entry">
+        <div class="entry-meta">
+          PHIL 12 · Scientific Reasoning &nbsp;—&nbsp; PHIL 27 · Ethics and Society &nbsp;—&nbsp; PHIL 10 · Introduction to Logic &nbsp;—&nbsp; PHIL 16 · Science Fiction and Philosophy &nbsp;—&nbsp; PHIL 146 · Philosophy of Physics (Reader) &nbsp;—&nbsp; CAT 1–3 · Culture, Art and Technology, at UC San Diego (2021–2026).
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="cv" class="tab">
-  <div class="sec-label">Curriculum Vitae</div>
-  <h2>CV</h2>
-  <div class="prose">
-    <p>A full account of my education, research, teaching, and service is in my curriculum vitae.</p>
+  <div class="page-grid">
+    <figure class="side-figure">
+      <img src="las-arenas.jpg" alt="The Vizcaya transporter bridge over the ria at Las Arenas under a blue sky.">
+      <figcaption>Las Arenas, Spain, 2026</figcaption>
+    </figure>
+    <div>
+      <h2>Curriculum Vitae</h2>
+      <div class="prose">
+        <p>A full account of my education, research, teaching, and service is in my curriculum vitae.</p>
+      </div>
+      <a class="btn" href="CV%202026.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+    </div>
   </div>
-  <a class="btn" href="CV%202026.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
 </section>
 
 <section id="contact" class="tab">
-  <div class="sec-label">Contact</div>
   <h2>Get in touch</h2>
   <div class="contact-grid">
     <div>
@@ -331,8 +328,19 @@
     history.replaceState(null, '', '#' + l.dataset.tab);
     window.scrollTo({top: 0});
   }));
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   const initial = location.hash.replace('#','');
-  if (initial && document.getElementById(initial)) show(initial);
+  if (initial && document.getElementById(initial)) {
+    show(initial);
+    const toTop = () => window.scrollTo(0, 0);
+    toTop();
+    requestAnimationFrame(toTop);
+    window.addEventListener('load', () => requestAnimationFrame(toTop));
+  }
+  window.addEventListener('hashchange', () => {
+    const h = location.hash.replace('#','');
+    if (h && document.getElementById(h)) { show(h); window.scrollTo(0, 0); }
+  });
 </script>
 
 </body>
